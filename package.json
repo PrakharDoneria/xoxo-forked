@@ -1,0 +1,12 @@
+{
+  "name": "tic-tac-toe-electron",
+  "version": "1.0.0",
+  "description": "A Tic-Tac-Toe game in Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "npx electron ."
+  },
+  "devDependencies": {
+    "electron": "^latest-version"
+  }
+}
