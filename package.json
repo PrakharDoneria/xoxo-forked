@@ -1,12 +1,41 @@
 {
   "name": "tic-tac-toe-electron",
   "version": "1.0.0",
-  "description": "A Tic-Tac-Toe game in Electron",
+  "description": "A stylish Tic-Tac-Toe game built with Electron",
   "main": "main.js",
   "scripts": {
-    "start": "npx electron ."
+    "start": "electron . --disable-gpu --no-sandbox",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Your Name",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^latest-version"
+    "electron": "^27.1.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.example.tictactoe",
+    "productName": "Tic Tac Toe",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
   }
 }
