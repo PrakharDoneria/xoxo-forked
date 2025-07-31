@@ -21,12 +21,18 @@
   </div>
 
   <!-- Game Screen -->
-  <div id="game-screen" style="display: none;">
+  <div id="game-screen">
     <div class="title-bar">
       <div class="window-controls">
         <img src="assets/shrink.png" alt="Minimize" class="shrink-button control-button">
         <img src="assets/close.png" alt="Close" class="close-button control-button">
       </div>
+    </div>
+    <!-- Removed: Logo container for XOXO title, as it's part of the background image -->
+    <!-- Player turn display and game message display -->
+    <div class="game-info">
+      <p id="current-player-display">Player X's Turn</p>
+      <p id="game-message-display"></p>
     </div>
     <div class="game-board">
       <div class="cell" data-index="0"></div>
@@ -40,14 +46,16 @@
       <div class="cell" data-index="8"></div>
     </div>
   </div>
+
 <!-- Win Screen -->
 <div id="win-screen">
   <div class="title-bar">
     <div class="window-controls">
-      <img src="assets/shrink.png" class="control-button" onclick="window.electronAPI.minimizeWindow()">
-      <img src="assets/close.png" class="control-button" onclick="window.electronAPI.closeWindow()">
+      <img src="assets/shrink.png" alt="Minimize" class="shrink-button control-button">
+      <img src="assets/close.png" alt="Close" class="close-button control-button">
     </div>
   </div>
+  <!-- Removed: Logo container for XOXO title, as it's part of the background image -->
   <div class="win-content">
     <img id="claim-reward-button" src="assets/claim.png" alt="Claim Reward Button">
   </div>
@@ -57,10 +65,11 @@
 <div id="fail-screen">
   <div class="title-bar">
     <div class="window-controls">
-      <img src="assets/shrink.png" class="control-button" onclick="window.electronAPI.minimizeWindow()">
-      <img src="assets/close.png" class="control-button" onclick="window.electronAPI.closeWindow()">
+      <img src="assets/shrink.png" alt="Minimize" class="shrink-button control-button">
+      <img src="assets/close.png" alt="Close" class="close-button control-button">
     </div>
   </div>
+  <!-- Removed: Logo container for XOXO title, as it's part of the background image -->
   <div class="fail-content">
     <img id="try-again-button" src="assets/tryagain.png" alt="Try Again Button">
   </div>

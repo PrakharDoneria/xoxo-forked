@@ -20,8 +20,8 @@ body {
 /* ===== WINDOW CONTAINERS ===== */
 #start-screen, #game-screen, #win-screen, #fail-screen {
   position: relative;
-  width: 400px; /* Reduced from 500px to 400px */
-  height: 400px; /* Reduced from 500px to 400px */
+  width: 450px; /* Consistent width */
+  height: 500px; /* Increased height from 450px to 500px */
   border: 3px solid #ff69b4;
   border-radius: 12px;
   overflow: hidden;
@@ -55,7 +55,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 12px 0 0; /* Added right padding for controls */
   -webkit-app-region: drag;
 }
 
@@ -66,7 +66,7 @@ body {
 }
 
 .control-button {
-  width: 34px; /* Adjusted from 30px to 34px to match previous changes */
+  width: 34px;
   height: 34px;
   cursor: pointer;
   transition: transform 0.2s;
@@ -75,6 +75,27 @@ body {
 .control-button:hover {
   transform: scale(1.15);
 }
+
+/* ===== LOGO (for game, win, fail screens) ===== */
+.logo-container {
+  position: absolute;
+  top: 0; /* Aligned with the top of the window */
+  left: 0;
+  width: 100%;
+  height: 32px; /* Same height as title bar */
+  display: flex;
+  align-items: center;
+  padding-left: 12px; /* Align with other content */
+  z-index: 3; /* Ensure it's above other elements if needed */
+  -webkit-app-region: drag; /* Allow dragging from here too */
+}
+
+.logo-container img {
+  height: 20px; /* Adjust logo size */
+  width: auto;
+  -webkit-app-region: no-drag; /* Prevent dragging on the logo itself */
+}
+
 
 /* ===== START SCREEN ===== */
 .start-content {
@@ -86,13 +107,13 @@ body {
 }
 
 #start-button {
-  width: 80px;
-  height: 30px;
+  width: 100px; /* Slightly increased button size */
+  height: 38px;
   cursor: pointer;
   transition: all 0.3s;
   filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
   position: absolute;
-  bottom: 80px;
+  bottom: 80px; /* Adjusted position for increased screen height */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -109,16 +130,17 @@ body {
   align-items: center;
   height: calc(100% - 32px); /* Account for title bar */
   position: relative;
+  padding-top: 32px; /* Space for the logo */
 }
 
 #claim-reward-button {
-  width: 120px;
-  height: 40px;
+  width: 150px; /* Slightly increased button size */
+  height: 50px;
   cursor: pointer;
   transition: all 0.3s;
   filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
   position: absolute;
-  bottom: 80px;
+  bottom: 80px; /* Adjusted position for increased screen height */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -135,16 +157,17 @@ body {
   align-items: center;
   height: calc(100% - 32px); /* Account for title bar */
   position: relative;
+  padding-top: 32px; /* Space for the logo */
 }
 
 #try-again-button {
-  width: 120px;
-  height: 40px;
+  width: 150px; /* Slightly increased button size */
+  height: 50px;
   cursor: pointer;
   transition: all 0.3s;
   filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
   position: absolute;
-  bottom: 80px;
+  bottom: 80px; /* Adjusted position for increased screen height */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -159,8 +182,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0px;
-  padding: 40px 15px 15px; /* Adjusted for smaller window */
-  height: calc(100% - 32px);
+  padding: 70px 15px 15px; /* Adjusted top padding for logo and game info */
+  height: calc(100% - 32px); /* Total height minus title bar */
   position: relative;
 }
 
@@ -168,11 +191,11 @@ body {
 .game-board::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 60px; /* Adjust grid lines to start below game info */
   left: 0;
   width: 100%;
-  height: 100%;
-  background: 
+  height: calc(100% - 60px); /* Adjust height of grid lines */
+  background:
     linear-gradient(to right, transparent 33.33%, #ff69b4 33.33%, #ff69b4 33.34%, transparent 33.34%, transparent 66.66%, #ff69b4 66.66%, #ff69b4 66.67%, transparent 66.67%),
     linear-gradient(to bottom, transparent 33.33%, #ff69b4 33.33%, #ff69b4 33.34%, transparent 33.34%, transparent 66.66%, #ff69b4 66.66%, #ff69b4 66.67%, transparent 66.67%);
   background-size: 100% 6px, 6px 100%;
@@ -202,8 +225,8 @@ body {
 .cell.x::after {
   content: "";
   position: absolute;
-  width: 60%; /* Reduced from 100% to 60% to prevent overflow */
-  height: 60%;
+  width: 50%;
+  height: 50%;
   background: url('assets/heart.png') center/contain no-repeat;
   filter: drop-shadow(0 0 6px rgba(255, 0, 100, 0.8));
 }
@@ -211,8 +234,8 @@ body {
 .cell.o::after {
   content: "";
   position: absolute;
-  width: 60%; /* Reduced from 100% to 60% to prevent overflow */
-  height: 60%;
+  width: 50%;
+  height: 50%;
   background: url('assets/letter.png') center/contain no-repeat;
   filter: drop-shadow(0 0 6px rgba(100, 200, 255, 0.8));
 }
@@ -228,6 +251,34 @@ body {
   to { transform: scale(1.05); }
 }
 
+/* ===== GAME INFO (New Styles) ===== */
+.game-info {
+  position: absolute;
+  top: 32px; /* Below the title bar */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 2; /* Ensure it's above the game board */
+  border-bottom: 1px solid #ff69b4;
+}
+
+#current-player-display {
+  color: #ff69b4; /* Pink color for player turn */
+  margin-bottom: 5px;
+}
+
+#game-message-display {
+  color: #fff; /* White for general messages */
+  font-size: 1.5em;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  padding: 5px 0;
+}
+
 /* ===== RESPONSIVE FALLBACKS ===== */
 @media (max-width: 520px) {
   #start-screen, #game-screen, #win-screen, #fail-screen {
@@ -236,9 +287,9 @@ body {
     border-radius: 0;
     border: none;
   }
-  
+
   .game-board {
-    padding: 90px 10px 10px;
+    padding: 90px 10px 10px; /* Adjusted to account for game-info bar */
     gap: 5px;
   }
 
@@ -246,6 +297,11 @@ body {
     width: 90px;
     height: 30px;
     bottom: 60px;
+  }
+
+  .game-info {
+    top: 0; /* Adjust for full screen mode */
+    padding-top: 40px; /* Push content down from top edge */
   }
 }
 

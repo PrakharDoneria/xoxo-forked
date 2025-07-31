@@ -4,11 +4,15 @@ A stylish Tic-Tac-Toe game built with Electron, featuring a modern UI and smooth
 
 ## Features
 
-- **Custom Window Controls**: Includes custom minimize and close buttons.
-- **Responsive Design**: Adapts to smaller screens with media queries.
-- **Smooth Animations**: Hover effects, winning animations, and transitions.
-- **Game States**: Start screen, game screen, win screen, and fail screen.
-- **Electron Integration**: Uses Electron for desktop application functionality.
+-   **Custom Window Controls**: Includes custom minimize and close buttons.
+-   **Responsive Design**: Adapts to smaller screens with media queries.
+-   **Smooth Animations**: Hover effects, winning animations, and transitions.
+-   **Game States**: Start screen, game screen, win screen, and fail screen.
+-   **Player Turn Indicator**: Clearly shows whose turn it is during gameplay.
+-   **Dynamic Game Messages**: Displays messages for wins and draws.
+-   **Enhanced UI Layout**: Improved spacing and positioning of elements for a cleaner look.
+-   **Larger Game Symbols**: X (heart) and O (letter) symbols are more prominent.
+-   **Electron Integration**: Uses Electron for desktop application functionality.
 
 ## Project Structure
 tic-tac-toe-electron/<br>
@@ -21,68 +25,88 @@ tic-tac-toe-electron/<br>
 ├── style.css # Styling for the app <br>
 ├── package.json # Project metadata and dependencies <br>
 └── README.md # Project documentation<br>
-<br>
-Install dependencies:
-Usage<br>
-Start the app in development mode:<br>
-<br>
-Build the app for distribution:<br>
-The built app will be available in the dist/ directory.<br>
 
-Game Instructions<br>
-Launch the app.<br>
-Click the Start Game button to begin.<br>
-Take turns clicking on the grid to place your symbol (X or O).<br>
-The first player to align three symbols in a row, column, or diagonal wins.<br>
-If the game ends in a draw, you can try again.<br>
-<br>
-File Descriptions<br>
-index.html<br>
-The main HTML file that defines the structure of the app, including the start screen, game screen, win screen, and fail screen.<br>
+## Install dependencies:
 
-style.css<br>
-Contains all the styles for the app, including responsive design, animations, and hover effects.<br>
+```bash
+npm install
+````
 
-script.js<br>
-Handles the game logic, UI interactions, and transitions between screens. Key features include:<br>
+## Usage
 
-Game state management.<br>
-Event listeners for buttons and cells.<br>
-Winning and draw detection.<br>
-main.js<br>
-The Electron main process script that creates the app window and handles IPC communication for window controls.<br>
+Start the app in development mode:
 
-package.json<br>
-Defines the project metadata, dependencies, and build configurations.<br>
+```bash
+npm start
+```
 
-Dependencies<br>
-Electron: Framework for building cross-platform desktop apps.<br>
-Electron Builder: Tool for packaging and distributing the app.<br>
-Development Notes<br>
-The app uses custom window controls, so the default Electron frame is disabled.<br>
-The game board and symbols are styled with CSS for a modern look.<br>
-Media queries ensure the app is responsive on smaller screens.<br>
-Build Configurations<br>
-The package.json file includes configurations for building the app for Windows, macOS, and Linux:<br>
+Build the app for distribution:
 
-Windows: Builds an NSIS installer.<br>
-macOS: Builds a DMG file.<br>
-Linux: Builds an AppImage.<br>
-Screenshots
-Start Screen<br>
-Start Screen<br>
+```bash
+npm run dist
+```
 
-Game Screen<br>
-Game Screen<br>
+The built app will be available in the `dist/` directory.
 
-Win Screen<br>
-Win Screen
-<br>
-Fail Screen<br>
-Fail Screen<br>
+## Game Instructions
 
-License<br>
-This project is licensed under the MIT License. See the LICENSE file for details.<br>
+1.  Launch the app.
+2.  Click the "Start Game" button to begin.
+3.  Take turns clicking on the grid to place your symbol (X or O).
+4.  The current player's turn is indicated at the top of the game board.
+5.  The first player to align three symbols in a row, column, or diagonal wins.
+6.  If the game ends in a draw, you can try again.
 
-Author<br>
-Developed by Your Name. Feel free to reach out for any questions or suggestions!<br>
+## File Descriptions
+
+**index.html**
+The main HTML file that defines the structure of the app, including the start screen, game screen, win screen, and fail screen. It now includes dedicated containers for the game logo and dynamic game information.
+
+**style.css**
+Contains all the styles for the app, including responsive design, animations, and hover effects. This file has been updated to accommodate the new UI elements, improve spacing, and enhance the visual presentation of game symbols and messages.
+
+**script.js**
+Handles the game logic, UI interactions, and transitions between screens. Key features include:
+
+  - Game state management.
+  - Event listeners for buttons and cells.
+  - Winning and draw detection.
+  - Updates for the player turn display and game messages.
+  - Improved initialization of window control event listeners.
+
+**main.js**
+The Electron main process script that creates the app window and handles IPC communication for window controls.
+
+**package.json**
+Defines the project metadata, dependencies, and build configurations.
+
+## Dependencies
+
+  - **Electron**: Framework for building cross-platform desktop apps.
+  - **Electron Builder**: Tool for packaging and distributing the app.
+
+## Development Notes
+
+  - The app uses custom window controls, so the default Electron frame is disabled.
+  - The game board and symbols are styled with CSS for a modern look.
+  - Media queries ensure the app is responsive on smaller screens.
+  - The game now provides clear visual feedback on whose turn it is and the game outcome.
+
+## Build Configurations
+
+The `package.json` file includes configurations for building the app for Windows, macOS, and Linux:
+
+  - **Windows**: Builds an NSIS installer.
+  - **macOS**: Builds a DMG file.
+  - **Linux**: Builds an AppImage.
+
+## Screenshots
+![Screenshot](assets/screenshots/Screenshot%20(152).png)
+![Screenshot](assets/screenshots/Screenshot%20(153).png)
+![Screenshot](assets/screenshots/Screenshot%20(153).png)
+![Screenshot](assets/screenshots/Screenshot%20(154).png)
+![Screenshot](assets/screenshots/Screenshot%20(155).png)
+
+## Author
+
+Developed by Abhirami Ramadas
